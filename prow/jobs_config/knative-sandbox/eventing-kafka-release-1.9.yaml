@@ -113,7 +113,7 @@ jobs:
   types:
   - periodic
 - name: s390x-e2e-tests
-  cron: 20 18 * * *
+  cron: 20 10 * * *
   types: [periodic]
   requirements: [s390x]
   command: [runner.sh]
@@ -124,7 +124,7 @@ jobs:
       mkdir -p /root/.kube
       cat /opt/cluster/ci-script > connect.sh
       chmod +x connect.sh
-      ./connect.sh eventing_kafka-19
+      ./connect.sh eventing_kafka-110
       kubectl get cm s390x-config-eventing-kafka -n default -o jsonpath='{.data.adjustment-script}' > adjust.sh
       chmod +x adjust.sh
       ./adjust.sh

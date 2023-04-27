@@ -127,7 +127,7 @@ periodics:
     testgrid-dashboards: knative-sandbox-release-1.9
     testgrid-tab-name: kn-plugin-event-s390x-e2e-tests
   cluster: prow-build
-  cron: 20 22 * * *
+  cron: 20 14 * * *
   decorate: true
   extra_refs:
   - base_ref: release-1.9
@@ -144,7 +144,7 @@ periodics:
         mkdir -p /root/.kube
         cat /opt/cluster/ci-script > connect.sh
         chmod +x connect.sh
-        ./connect.sh plugin_event-19
+        ./connect.sh plugin_event-110
         kubectl get cm s390x-config-plugin-event -n default -o jsonpath='{.data.adjustment-script}' > adjust.sh
         chmod +x adjust.sh
         ./adjust.sh
